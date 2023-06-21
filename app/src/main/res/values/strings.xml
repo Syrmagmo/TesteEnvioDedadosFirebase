@@ -2,4 +2,14 @@
     <string name="app_name">TesteEnvioDedadosFirebase</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="generos_livros">
+        <item>Ação</item>
+        <item>Aventura</item>
+        <item>Romance</item>
+        <item>Ficção Científica</item>
+        <item>Drama</item>
+        <!-- Adicione mais gêneros de livros conforme necessário -->
+    </string-array>
+
 </resources>

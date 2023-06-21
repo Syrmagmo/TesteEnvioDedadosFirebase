@@ -38,7 +38,6 @@
 
         <TextView
             android:layout_width="wrap_content"
-
             android:layout_height="22dp"
             android:textStyle="bold"
             android:textSize="16sp"
@@ -102,7 +101,8 @@
                     android:background="@drawable/background_caixa_texto"
                     android:hint="Terror"
                     android:paddingStart="15dp"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:entries="@array/generos_livros"/>
 
             </LinearLayout>
 
