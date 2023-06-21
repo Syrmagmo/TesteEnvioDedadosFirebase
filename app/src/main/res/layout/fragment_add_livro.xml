@@ -50,7 +50,7 @@
         <EditText
             android:id="@+id/EditText_Titulo_Livro"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="48dp"
             android:background="@drawable/background_caixa_texto"
             android:hint="Ex: O mago"
             android:paddingStart="15dp"
@@ -69,7 +69,7 @@
         <EditText
             android:id="@+id/EditText_Autor_Livro"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="48dp"
             android:background="@drawable/background_caixa_texto"
             android:hint="Autor (a)"
             android:paddingStart="15dp"
@@ -98,7 +98,7 @@
                 <Spinner
                     android:id="@+id/EditText_Genero_Livro"
                     android:layout_width="173dp"
-                    android:layout_height="45dp"
+                    android:layout_height="48dp"
                     android:background="@drawable/background_caixa_texto"
                     android:hint="Terror"
                     android:paddingStart="9dp"
@@ -126,7 +126,7 @@
                 <EditText
                     android:id="@+id/EditText_Ano_Livro"
                     android:layout_width="119dp"
-                    android:layout_height="45dp"
+                    android:layout_height="48dp"
                     android:background="@drawable/background_caixa_texto"
                     android:hint="Ex: 2023"
                     android:maxLength="4"
@@ -152,7 +152,7 @@
         <Spinner
             android:id="@+id/Spinner_Estado_Livro"
             android:layout_width="350dp"
-            android:layout_height="45dp"
+            android:layout_height="48dp"
             android:background="@drawable/background_caixa_texto"
             android:hint="Terror"
             android:paddingStart="9dp"
@@ -180,6 +180,32 @@
             android:inputType="textMultiLine"
             android:padding="15dp" />
 
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/btn_publicar"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:textSize="19sp"
+                android:layout_marginTop="10dp"
+                android:text="Publicar" />
+
+            <Button
+                android:id="@+id/btn_voltar"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#D64646"
+                android:text="Voltar"
+                android:textSize="19sp" />
+
+
+        </LinearLayout>
+        <!--
         <androidx.appcompat.widget.ActionMenuView
             android:layout_width="350dp"
             android:layout_height="wrap_content"
@@ -187,7 +213,7 @@
 
             <Button
                 android:id="@+id/btn_publicar"
-                android:layout_width="100dp"
+                android:layout_width="151dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="10dp"
                 android:text="Publicar" />
@@ -195,13 +221,13 @@
             <Button
                 android:id="@+id/btn_voltar"
                 android:layout_width="51dp"
-                android:layout_height="69dp"
+                android:layout_height="109dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginTop="8dp"
-                android:backgroundTint="#C65A5A"
+                android:backgroundTint="#D64646"
                 android:text="Voltar" />
 
-        </androidx.appcompat.widget.ActionMenuView>
+        </androidx.appcompat.widget.ActionMenuView>-->
 
 
     </LinearLayout>
