@@ -17,8 +17,10 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.testeenviodedadosfirebase.Fragment.Fragment_Add_livro;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.play.core.integrity.v;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     //Metodo responsavel por salvar os dados no DatabaseRealTime
     private DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
     private DatabaseReference referenciaIMG = FirebaseDatabase.getInstance().getReference("Image");
-    private StorageReference reference = FirebaseStorage.getInstance().getReference();
+    private StorageReference referenciaStorage = FirebaseStorage.getInstance().getReference();
 
     //widgets Para fazer upload de imagem
     private Button uploadBtn, showAllBtn;
@@ -60,15 +62,6 @@ public class MainActivity extends AppCompatActivity {
         Usuario.setNome("Lincoln dos");
         Usuario.setSobrenome("Santos");
         usuarioDB.child("100").setValue(Usuario);
-
-        /* Obter a referência ao ImageView
-        ImageView imageView = findViewById(R.id.imageView);
-
-        // Obter o Drawable da imagem do diretório "drawable"
-        Drawable drawable = ContextCompat.getDrawable(this, R.drawable.wublanceiro);
-
-        // Definir o Drawable no ImageView
-        imageView.setImageDrawable(drawable);*/
 
         /*
         Metodo responsavel por recuperar os dados do firebase
@@ -134,6 +127,19 @@ public class MainActivity extends AppCompatActivity {
                 imageView.setImageResource(R.drawable.ic_addfoto);
             }
         });
+
+        Button button = findViewById(R.id.btnTeste); // Substitua "button" pelo ID do seu Button
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment_Add_livro fragment = new Fragment_Add_livro();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, fragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @NonNull Intent data) {
@@ -145,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private void uploadToFirebase(Uri uri){
-        StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
+        StorageReference fileRef = referenciaStorage.child(System.currentTimeMillis() + "." + getFileExtension(uri));
         fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -190,4 +196,5 @@ public class MainActivity extends AppCompatActivity {
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cr.getType(mUri));
     }
+
 }
