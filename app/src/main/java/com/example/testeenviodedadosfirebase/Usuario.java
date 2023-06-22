@@ -43,20 +43,4 @@ public class Usuario {
     public String getFotoBase64() {
         return fotoBase64;
     }
-/*
-    public void setFotoBase64(String fotoBase64) {
-        this.fotoBase64 = fotoBase64;
-    }
-
-    public void setFoto(Bitmap foto) {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        foto.compress(Bitmap.CompressFormat.PNG, 100, baos);
-        byte[] byteArray = baos.toByteArray();
-        this.fotoBase64 = Base64.encodeToString(byteArray, Base64.DEFAULT);
-    }
-
-    public Bitmap getFoto() {
-        byte[] decodedString = Base64.decode(fotoBase64, Base64.DEFAULT);
-        return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-    }*/
 }

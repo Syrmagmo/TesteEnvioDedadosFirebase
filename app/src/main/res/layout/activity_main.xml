@@ -31,6 +31,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
+
+
     <Button
         android:id="@+id/showall_btn"
         android:layout_width="wrap_content"
@@ -63,4 +65,58 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/upload_btn"
         app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/editTextNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="66dp"
+        android:hint="Digite o nome"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextIdade"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextIdade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:inputType="number"
+        android:hint="Digite a idade"
+        app:layout_constraintBottom_toTopOf="@+id/editTextSobrenome"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextSobrenome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite o sobrenome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/salvar_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="46dp"
+        android:text="SALVARBTN"
+        app:layout_constraintBottom_toTopOf="@+id/showall_btn"
+        app:layout_constraintEnd_toEndOf="@+id/showall_btn"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.901" />
+
+    <Button
+        android:id="@+id/sairButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="46dp"
+        android:text="sair"
+        app:layout_constraintBottom_toTopOf="@+id/showall_btn"
+        app:layout_constraintEnd_toEndOf="@+id/showall_btn"
+        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.68" />
 </androidx.constraintlayout.widget.ConstraintLayout>

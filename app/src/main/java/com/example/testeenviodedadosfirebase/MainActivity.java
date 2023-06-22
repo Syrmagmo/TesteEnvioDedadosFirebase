@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -41,45 +42,54 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference referenciaIMG = FirebaseDatabase.getInstance().getReference("Image");
     private StorageReference referenciaStorage = FirebaseStorage.getInstance().getReference();
 
-    //widgets Para fazer upload de imagem
     private Button uploadBtn, showAllBtn;
     private ImageView imageView;
     private ProgressBar progressBar;
     private Uri imageUri;
+
+    private EditText editTextNome;
+    private EditText editTextIdade;
+    private EditText editTextSobrenome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Metodo responsavel por salvar os dados no DatabaseRealTime
-        //referencia.child("usuarios").child("001").setValue("Lincoln");
+        editTextNome = findViewById(R.id.editTextNome);
+        editTextIdade = findViewById(R.id.editTextIdade);
+        editTextSobrenome = findViewById(R.id.editTextSobrenome);
 
-        Usuario Usuario = new Usuario();
+        Usuario usuario = new Usuario();
         DatabaseReference usuarioDB = referencia.child("usuarioDB");
 
-        Usuario.setIdade(22);
-        Usuario.setNome("Lincoln dos");
-        Usuario.setSobrenome("Santos");
-        usuarioDB.child("100").setValue(Usuario);
+        Button salvarBtn = findViewById(R.id.salvar_btn);
+        salvarBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nome = editTextNome.getText().toString();
+                int idade = Integer.parseInt(editTextIdade.getText().toString());
+                String sobrenome = editTextSobrenome.getText().toString();
 
-        /*
-        Metodo responsavel por recuperar os dados do firebase
-         */
+                usuario.setIdade(idade);
+                usuario.setNome(nome);
+                usuario.setSobrenome(sobrenome);
+
+                usuarioDB.child("100").setValue(usuario);
+
+                Toast.makeText(MainActivity.this, "Dados salvos com sucesso!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         usuarioDB.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                //aqui é onde recupera os valores
-
                 Log.i("Firebase", snapshot.getValue().toString());
-
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
                 Log.i("FIREBASE", "Erro relacionado ao banco de dados" + error);
-
             }
         });
 
