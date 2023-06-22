@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         editTextNome = findViewById(R.id.editTextNome);
         editTextIdade = findViewById(R.id.editTextIdade);
-        editTextSobrenome = findViewById(R.id.editTextSobrenome);
+        //editTextSobrenome = findViewById(R.id.editTextSobrenome);
 
         Usuario usuario = new Usuario();
         DatabaseReference usuarioDB = referencia.child("usuarioDB");
